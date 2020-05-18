@@ -1,0 +1,2 @@
+# GhuCrypt
+Meu primeiro encoder!

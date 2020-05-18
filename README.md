@@ -4,8 +4,7 @@ Uma criptografia baseada no nome do meu cachorro, Zequinha!
 
 ## Requisitos 
 
-Não são necessários para o funcionamento da criptografia, só usei para deixar mais bonito o código 
-
+Não são necessários para o funcionamento da criptografia, só usei para deixar o programa mais bonito
 ```
 pip install colorama 
 pip install pyperclip 

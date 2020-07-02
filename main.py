@@ -27,18 +27,18 @@ def ghusoft():
 
 def title():
     print(Fore.WHITE + Style.BRIGHT)
-    print('''  ______   __                   ______                                   __     
- /      \ /  |                 /      \                                 /  |    
-/$$$$$$  |$$ |____   __    __ /$$$$$$  |  ______   __    __   ______   _$$ |_   
-$$ | _$$/ $$      \ /  |  /  |$$ |  $$/  /      \ /  |  /  | /      \ / $$   |  
-$$ |/    |$$$$$$$  |$$ |  $$ |$$ |      /$$$$$$  |$$ |  $$ |/$$$$$$  |$$$$$$/   
-$$ |$$$$ |$$ |  $$ |$$ |  $$ |$$ |   __ $$ |  $$/ $$ |  $$ |$$ |  $$ |  $$ | __ 
-$$ \__$$ |$$ |  $$ |$$ \__$$ |$$ \__/  |$$ |      $$ \__$$ |$$ |__$$ |  $$ |/  |
-$$    $$/ $$ |  $$ |$$    $$/ $$    $$/ $$ |      $$    $$ |$$    $$/   $$  $$/ 
- $$$$$$/  $$/   $$/  $$$$$$/   $$$$$$/  $$/        $$$$$$$ |$$$$$$$/     $$$$/  
-                                                  /  \__$$ |$$ |                
-                                                  $$    $$/ $$ |                
-                                                   $$$$$$/  $$/                 ''')
+    print('   ______   __                   ______                                   __     \n'
+          '  /      \ /  |                 /      \                                 /  |    \n'
+          ' /$$$$$$  |$$ |____   __    __ /$$$$$$  |  ______   __    __   ______   _$$ |_   \n'
+          ' $$ | _$$/ $$      \ /  |  /  |$$ |  $$/  /      \ /  |  /  | /      \ / $$   |  \n'
+          ' $$ |/    |$$$$$$$  |$$ |  $$ |$$ |      /$$$$$$  |$$ |  $$ |/$$$$$$  |$$$$$$/   \n'
+          ' $$ |$$$$ |$$ |  $$ |$$ |  $$ |$$ |   __ $$ |  $$/ $$ |  $$ |$$ |  $$ |  $$ | __ \n'
+          ' $$ \__$$ |$$ |  $$ |$$ \__$$ |$$ \__/  |$$ |      $$ \__$$ |$$ |__$$ |  $$ |/  |\n'
+          ' $$    $$/ $$ |  $$ |$$    $$/ $$    $$/ $$ |      $$    $$ |$$    $$/   $$  $$/ \n'
+          '  $$$$$$/  $$/   $$/  $$$$$$/   $$$$$$/  $$/        $$$$$$$ |$$$$$$$/     $$$$/  \n'
+          '                                                   /  \__$$ |$$ |                \n'
+          '                                                   $$    $$/ $$ |                \n'
+          '                                                    $$$$$$/  $$/                 ')
     print('Created by ', end='')
     ghusoft()
     print()
@@ -76,15 +76,20 @@ while True:
 
         print(Fore.LIGHTYELLOW_EX + 'Digite o texto' + Fore.RESET)
         text = input('> ')
-        text_decrypted = decriptao(text)
+        try:
+            text_decrypted = decriptao(text)
 
-        print('\n' + Fore.LIGHTYELLOW_EX + 'Texto desencriptado' + Fore.RESET)
-        print('> ' + text_decrypted)
+            print('\n' + Fore.LIGHTYELLOW_EX + 'Texto desencriptado' + Fore.RESET)
+            print('> ' + text_decrypted)
 
-        pyperclip.copy(text_decrypted)
-        print(Fore.LIGHTGREEN_EX + 'Texto copiado para o seu clipboard!' + Fore.RESET)
+            pyperclip.copy(text_decrypted)
+            print(Fore.LIGHTGREEN_EX + 'Texto copiado para o seu clipboard!' + Fore.RESET)
 
-        input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+            input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+        except ValueError:
+            print('O texto não está escrito em Zequinhês')
+            input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+
     elif esc == '3':
         clear_scr()
         exit(0)

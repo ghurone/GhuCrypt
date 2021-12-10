@@ -5,10 +5,10 @@ import pyperclip
 import readline  # importei para conseguir editar os inputs
 from colorama import Fore, Style
 
-from crypt import criptao
-from decrypt import decriptao
+from zequinha import Zequinha
 
 colorama.init()
+chave = Zequinha()
 
 
 def clear_scr():
@@ -52,8 +52,9 @@ while True:
     print('     [1] -  Encriptar um texto')
     print('     [2] -  Desencriptar um texto')
     print('     [3] -  Sair')
+    print()
 
-    esc = input('Escolha > ')
+    esc = input('>>> ')
 
     if esc == '1':
         clear_scr()
@@ -61,15 +62,16 @@ while True:
 
         print(Fore.LIGHTYELLOW_EX + 'Digite seu texto' + Fore.RESET)
         text = input('> ')
-        text_crypted = criptao(text)
+        text_crypted = chave.encriptar(text)
 
         print('\n' + Fore.LIGHTYELLOW_EX + 'Texto encriptado' + Fore.RESET)
         print('> ' + text_crypted)
 
         pyperclip.copy(text_crypted)
+        print()
         print(Fore.LIGHTGREEN_EX + 'Texto copiado para o seu clipboard!' + Fore.RESET)
 
-        input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+        input(Fore.LIGHTRED_EX + '\nAperte ENTER para voltar ao menu...' + Fore.RESET)
     elif esc == '2':
         clear_scr()
         title()
@@ -77,18 +79,19 @@ while True:
         print(Fore.LIGHTYELLOW_EX + 'Digite o texto' + Fore.RESET)
         text = input('> ')
         try:
-            text_decrypted = decriptao(text)
+            text_decrypted = chave.desencriptar(text)
 
             print('\n' + Fore.LIGHTYELLOW_EX + 'Texto desencriptado' + Fore.RESET)
             print('> ' + text_decrypted)
 
             pyperclip.copy(text_decrypted)
+            print()
             print(Fore.LIGHTGREEN_EX + 'Texto copiado para o seu clipboard!' + Fore.RESET)
 
-            input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+            input(Fore.LIGHTRED_EX + '\nAperte ENTER para voltar ao menu...' + Fore.RESET)
         except ValueError:
             print('O texto não está escrito em Zequinhês')
-            input(Fore.LIGHTRED_EX + '\nPrecione ENTER para voltar ao menu...' + Fore.RESET)
+            input(Fore.LIGHTRED_EX + '\nAperte ENTER para voltar ao menu...' + Fore.RESET)
 
     elif esc == '3':
         clear_scr()

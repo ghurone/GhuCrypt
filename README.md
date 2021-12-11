@@ -1,10 +1,11 @@
 # GhuCrypt 
 
-Uma criptografia baseada no nome do meu cachorro, Zequinha! 
+Uma criptografia baseada no nome do meu cachorro, o Zequinha! 
 
 ## Requisitos 
 
 Não são necessários para o funcionamento da criptografia, só usei para deixar o programa mais bonito
+
 ```
 pip install colorama 
 pip install pyperclip 
@@ -14,11 +15,11 @@ pip install pyperclip
 
 Para iniciar, rode o programa [main.py](main.py) 
 
-``` 
+```
 python main.py 
 ``` 
 
-Depois de iniciado, o programa é bem intuitivo! 
+Após iniciar o programa ele é bem intuitivo!
 
 ## License 
 
